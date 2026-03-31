@@ -1,0 +1,44 @@
+<div class="page-header">
+  <h2>{{ (isEdit() ? 'driver.edit_title' : 'driver.create_title') | translate }}</h2>
+</div>
+
+<form (ngSubmit)="save()" class="form-grid">
+  <div class="field">
+    <label for="first_name">{{ 'driver.first_name' | translate }} *</label>
+    <input pInputText id="first_name" [(ngModel)]="driver().first_name" name="first_name" required />
+  </div>
+
+  <div class="field">
+    <label for="last_name">{{ 'driver.last_name' | translate }} *</label>
+    <input pInputText id="last_name" [(ngModel)]="driver().last_name" name="last_name" required />
+  </div>
+
+  <div class="field">
+    <label for="email">{{ 'driver.email' | translate }} *</label>
+    <input pInputText id="email" [(ngModel)]="driver().email" name="email" required type="email" />
+  </div>
+
+  <div class="field">
+    <label for="phone">{{ 'driver.phone' | translate }}</label>
+    <input pInputText id="phone" [(ngModel)]="driver().phone" name="phone" />
+  </div>
+
+  <div class="field">
+    <label for="license_number">{{ 'driver.license_number' | translate }} *</label>
+    <input pInputText id="license_number" [(ngModel)]="driver().license_number" name="license_number" required />
+  </div>
+
+  <div class="field">
+    <label for="vehicle_ids">{{ 'driver.vehicles' | translate }}</label>
+    <p-multiSelect id="vehicle_ids" [options]="availableVehicles()" [(ngModel)]="driver().vehicle_ids"
+                   name="vehicle_ids" [placeholder]="'driver.select_vehicles' | translate"
+                   display="chip" />
+  </div>
+
+  <div class="form-actions">
+    <p-button type="submit" [label]="'common.save' | translate" icon="fa fa-check" />
+    <a routerLink="/drivers">
+      <p-button [label]="'common.cancel' | translate" icon="fa fa-times" severity="secondary" />
+    </a>
+  </div>
+</form>

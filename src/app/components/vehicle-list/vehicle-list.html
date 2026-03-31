@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h2>{{ 'vehicle.list_title' | translate }}</h2>
+  <a routerLink="/vehicles/new">
+    <p-button [label]="'common.create' | translate" icon="fa fa-plus" />
+  </a>
+</div>
+
+<p-table [value]="vehicles()" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 25]"
+         stripedRows>
+  <ng-template #header>
+    <tr>
+      <th pSortableColumn="name">{{ 'vehicle.name' | translate }} <p-sortIcon field="name" /></th>
+      <th pSortableColumn="brand_id">{{ 'vehicle.brand_id' | translate }} <p-sortIcon field="brand_id" /></th>
+
+      <th>{{ 'vehicle.color' | translate }}</th>
+      <th>{{ 'vehicle.fuel_type' | translate }}</th>
+      <th>{{ 'vehicle.type' | translate }}</th>
+      <th>{{ 'vehicle.license_plate' | translate }}</th>
+      <th>{{ 'vehicle.pool' | translate }}</th>
+      <th>{{ 'common.actions' | translate }}</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-vehicle>
+    <tr>
+      <td>{{ vehicle.name }}</td>
+      <td>{{ vehicle.brand_id }}</td>
+
+      <td>{{ vehicle.color }}</td>
+      <td>{{ vehicle.fuel_type }}</td>
+      <td>{{ vehicle.type }}</td>
+      <td>{{ vehicle.license_plate }}</td>
+      <td><i [class]="vehicle.pool ? 'fa fa-check text-green' : 'fa fa-times text-red'"></i></td>
+      <td class="action-buttons">
+        <a [routerLink]="['/vehicles', vehicle.id, 'edit']">
+          <p-button icon="fa fa-pen" [rounded]="true" severity="info" [text]="true" />
+        </a>
+        <p-button icon="fa fa-trash" [rounded]="true" severity="danger" [text]="true"
+                  (onClick)="confirmDelete(vehicle)" />
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template #emptymessage>
+    <tr>
+      <td colspan="8" class="text-center">{{ 'common.no_data' | translate }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-confirmDialog />

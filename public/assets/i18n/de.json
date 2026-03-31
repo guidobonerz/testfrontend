@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "Fahrzeugverwaltung"
+  },
+  "nav": {
+    "vehicles": "Fahrzeuge",
+    "drivers": "Fahrer"
+  },
+  "common": {
+    "create": "Erstellen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "actions": "Aktionen",
+    "no_data": "Keine Einträge gefunden"
+  },
+  "vehicle": {
+    "list_title": "Fahrzeuge",
+    "create_title": "Fahrzeug erstellen",
+    "edit_title": "Fahrzeug bearbeiten",
+    "name": "Name",
+    "color": "Farbe",
+    "brand_id": "Marken-ID",
+    "fuel_type": "Kraftstoffart",
+    "type": "Typ",
+    "license_plate": "Kennzeichen",
+    "model": "Modell (entfernt)",
+    "pool": "Poolfahrzeug"
+  },
+  "driver": {
+    "list_title": "Fahrer",
+    "create_title": "Fahrer erstellen",
+    "edit_title": "Fahrer bearbeiten",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "license_number": "Führerscheinnummer",
+    "vehicles": "Fahrzeuge",
+    "vehicles_count": "Fahrzeuge",
+    "select_vehicles": "Fahrzeuge auswählen..."
+  }
+}

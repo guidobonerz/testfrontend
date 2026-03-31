@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "Fleet Management"
+  },
+  "nav": {
+    "vehicles": "Vehicles",
+    "drivers": "Drivers"
+  },
+  "common": {
+    "create": "Create",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "actions": "Actions",
+    "no_data": "No records found"
+  },
+  "vehicle": {
+    "list_title": "Vehicles",
+    "create_title": "Create Vehicle",
+    "edit_title": "Edit Vehicle",
+    "name": "Name",
+    "color": "Color",
+    "brand_id": "Brand ID",
+    "fuel_type": "Fuel Type",
+    "type": "Type",
+    "license_plate": "License Plate",
+    "model": "Model (removed)",
+    "pool": "Pool Vehicle"
+  },
+  "driver": {
+    "list_title": "Drivers",
+    "create_title": "Create Driver",
+    "edit_title": "Edit Driver",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "license_number": "License Number",
+    "vehicles": "Vehicles",
+    "vehicles_count": "Vehicles",
+    "select_vehicles": "Select vehicles..."
+  }
+}

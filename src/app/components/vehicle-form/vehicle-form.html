@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h2>{{ (isEdit() ? 'vehicle.edit_title' : 'vehicle.create_title') | translate }}</h2>
+</div>
+
+<form (ngSubmit)="save()" class="form-grid">
+  <div class="field">
+    <label for="name">{{ 'vehicle.name' | translate }} *</label>
+    <input pInputText id="name" [(ngModel)]="vehicle().name" name="name" required />
+  </div>
+
+  <div class="field">
+    <label for="brand_id">{{ 'vehicle.brand_id' | translate }} *</label>
+    <input pInputText id="brand_id" [(ngModel)]="vehicle().brand_id" name="brand_id" required />
+  </div>
+
+  <div class="field">
+    <label for="color">{{ 'vehicle.color' | translate }}</label>
+    <input pInputText id="color" [(ngModel)]="vehicle().color" name="color" />
+  </div>
+
+  <div class="field">
+    <label for="fuel_type">{{ 'vehicle.fuel_type' | translate }} *</label>
+    <p-select id="fuel_type" [options]="fuelTypes" [(ngModel)]="vehicle().fuel_type"
+              name="fuel_type" placeholder="Select fuel type" />
+  </div>
+
+  <div class="field">
+    <label for="type">{{ 'vehicle.type' | translate }} *</label>
+    <p-select id="type" [options]="vehicleTypes" [(ngModel)]="vehicle().type"
+              name="type" placeholder="Select vehicle type" />
+  </div>
+
+  <div class="field">
+    <label for="license_plate">{{ 'vehicle.license_plate' | translate }} *</label>
+    <input pInputText id="license_plate" [(ngModel)]="vehicle().license_plate" name="license_plate" required />
+  </div>
+
+  <div class="field">
+    <label for="pool">{{ 'vehicle.pool' | translate }}</label>
+    <input type="checkbox" id="pool" [(ngModel)]="vehicle().pool" name="pool" />
+  </div>
+
+  <div class="form-actions">
+    <p-button type="submit" [label]="'common.save' | translate" icon="fa fa-check" />
+    <a routerLink="/vehicles">
+      <p-button [label]="'common.cancel' | translate" icon="fa fa-times" severity="secondary" />
+    </a>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+<div class="layout-wrapper">
+  <nav class="topbar">
+    <div class="topbar-left">
+      <span class="app-title">
+        <i class="fa fa-car"></i> {{ 'app.title' | translate }}
+      </span>
+      <a routerLink="/vehicles" routerLinkActive="active-link" class="nav-link">
+        <i class="fa fa-car-side"></i> {{ 'nav.vehicles' | translate }}
+      </a>
+      <a routerLink="/drivers" routerLinkActive="active-link" class="nav-link">
+        <i class="fa fa-id-card"></i> {{ 'nav.drivers' | translate }}
+      </a>
+    </div>
+    <div class="topbar-right">
+      <p-button icon="fa fa-moon" [rounded]="true" [text]="true" (onClick)="toggleTheme()" />
+      <p-button label="EN" [text]="true" [raised]="languageService.language() === 'en'"
+                (onClick)="switchLanguage('en')" />
+      <p-button label="DE" [text]="true" [raised]="languageService.language() === 'de'"
+                (onClick)="switchLanguage('de')" />
+    </div>
+  </nav>
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>

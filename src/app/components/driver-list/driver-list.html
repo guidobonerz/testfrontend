@@ -1,0 +1,45 @@
+<div class="page-header">
+  <h2>{{ 'driver.list_title' | translate }}</h2>
+  <a routerLink="/drivers/new">
+    <p-button [label]="'common.create' | translate" icon="fa fa-plus" />
+  </a>
+</div>
+
+<p-table [value]="drivers()" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 25]"
+         stripedRows>
+  <ng-template #header>
+    <tr>
+      <th pSortableColumn="first_name">{{ 'driver.first_name' | translate }} <p-sortIcon field="first_name" /></th>
+      <th pSortableColumn="last_name">{{ 'driver.last_name' | translate }} <p-sortIcon field="last_name" /></th>
+      <th>{{ 'driver.email' | translate }}</th>
+      <th>{{ 'driver.phone' | translate }}</th>
+      <th>{{ 'driver.license_number' | translate }}</th>
+      <th>{{ 'driver.vehicles_count' | translate }}</th>
+      <th>{{ 'common.actions' | translate }}</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-driver>
+    <tr>
+      <td>{{ driver.first_name }}</td>
+      <td>{{ driver.last_name }}</td>
+      <td>{{ driver.email }}</td>
+      <td>{{ driver.phone }}</td>
+      <td>{{ driver.license_number }}</td>
+      <td>{{ driver.vehicle_ids?.length || 0 }}</td>
+      <td class="action-buttons">
+        <a [routerLink]="['/drivers', driver.id, 'edit']">
+          <p-button icon="fa fa-pen" [rounded]="true" severity="info" [text]="true" />
+        </a>
+        <p-button icon="fa fa-trash" [rounded]="true" severity="danger" [text]="true"
+                  (onClick)="confirmDelete(driver)" />
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template #emptymessage>
+    <tr>
+      <td colspan="7" class="text-center">{{ 'common.no_data' | translate }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-confirmDialog />
